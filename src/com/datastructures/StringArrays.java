@@ -2,7 +2,7 @@ package com.datastructures;
 
 public class StringArrays {
 
-    //Arrays
+    //Arrays and Strings
 
     // Find if the given string has only unique characters
     public boolean isHavingUniqueChar(String input){
