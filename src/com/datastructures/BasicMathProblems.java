@@ -6,12 +6,18 @@ public class BasicMathProblems {
 
     }
 
-    public void isEven(){
-
+    public boolean isEven(int n){
+        if(n%2==0)
+            return true;
+        else
+            return false;
     }
 
-    public void isOdd(){
-
+    public boolean isOdd(int n){
+        if(n%2 != 0)
+            return true;
+        else
+            return false;
     }
 
     public void isPrime(){
