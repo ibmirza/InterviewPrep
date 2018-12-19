@@ -3,9 +3,19 @@ package com.datastructures;
 public class StringArrays {
 
     //Arrays
-
-    public boolean isUnique(String input){
-        return true;
+    public boolean isHavingUniqueChar(String input){
+    	boolean[] array = new boolean[256]; 
+    	boolean result = true;
+    	for(int i=0; i<input.length(); i++){
+    		if(array[input.charAt(i)] == false){
+    			array[input.charAt(i)] = true;
+    		}
+    		else{
+    			result = false;
+    			break;
+    		}
+    	}
+        return result;
     }
 
     public void printAllSubsets(int[] array){
@@ -59,7 +69,7 @@ public class StringArrays {
     }
 
 
-    // sorted array with missing elements in it. Find the missing element in log n time
+    // Given a sorted array with missing elements in it. Find the missing element in log n time
     public void findMissingElement(int[] array){
 
     }
@@ -68,4 +78,5 @@ public class StringArrays {
     public void findIndexToInsert(int[] array, int k){
 
     }
+
 }

@@ -1,17 +1,24 @@
 package com.datastructures;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.Assert.*;
+public class StringArraysTest {
 
-public class RecursionTest {
+    StringArrays strArray;
 
     @Before
     public void setUp() throws Exception {
+      strArray = new StringArrays();
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @Test
+    public void testIsHavingUniqueChar(){
+        Assert.assertTrue(strArray.isHavingUniqueChar("abcd"));
+        Assert.assertFalse(strArray.isHavingUniqueChar("abtabkj"));
     }
+
+
 }
