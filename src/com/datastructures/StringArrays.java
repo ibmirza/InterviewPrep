@@ -3,6 +3,8 @@ package com.datastructures;
 public class StringArrays {
 
     //Arrays
+
+    // Find if the given string has only unique characters
     public boolean isHavingUniqueChar(String input){
     	boolean[] array = new boolean[256]; 
     	boolean result = true;
