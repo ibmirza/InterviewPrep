@@ -3,6 +3,7 @@ package com.datastructures;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 
 public class BinarySearchProbTests {
 
@@ -81,5 +82,19 @@ public class BinarySearchProbTests {
         Assert.assertEquals(7,bs.findPeakElement(array2));
         // this fails Assert.assertEquals(3,bs.findPeakElement(array3));
 
+    }
+
+    @Test
+    public void testMissingElement(){
+        int[] array = {1,3,4,5,6,7};
+        int[] array2 = {1,2,3,4,5};
+        Assert.assertEquals(2,bs.findMissingElement(array));
+        Assert.assertEquals(-1, bs.findMissingElement(array2));
+    }
+
+    @Test
+    public void testInsertLocation(){
+        int[] array = {1,3,4,5,6,7};
+        Assert.assertEquals(1,bs.findIndexToInsert(array, 2));
     }
 }

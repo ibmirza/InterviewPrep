@@ -183,13 +183,35 @@ public class BinarySearchProb {
     }
 
 
-    // Given a sorted array with missing elements in it. Find the missing element in log n time
-    public void findMissingElement(int[] array){
-
+    // Given a sorted array with distinct elements in it. Find missing elements in it. Find the missing element in log n time
+    public int findMissingElement(int[] array){
+		int low = 0;
+		int high = array.length - 1;
+		while(low <= high){
+			int mid = low + (high-low)/2;
+			if (array[mid] != (mid+1)) {
+				return mid;
+			}
+			else if (array[mid] > mid+1)
+				high = mid - 1;
+			else
+				low = mid + 1;
+		}
+		return -1;
     }
 
     //Given a sorted array, find the index at which the the value of 'k' should be inserted
-    public void findIndexToInsert(int[] array, int k){
-
+    public int findIndexToInsert(int[] array, int k){
+		int low = 0;
+		int high = array.length - 1;
+		while(low <= high){
+			int mid = low + (high-low)/2;
+			if (array[mid] > k) {
+				high = mid;
+			}
+			else
+				low = mid + 1;
+		}
+		return low;
     }
 }
