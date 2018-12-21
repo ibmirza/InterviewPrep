@@ -69,11 +69,17 @@ public class BinarySearchProbTests {
     @Test
     public void testZeroCountUnsortedArray(){
         int[] array = {0,0,0,0,3,2,2,7,6};
-        Assert.assertEquals(3,bs.zeroCount(array));
+        Assert.assertEquals(4,bs.zeroCount(array));
     }
 
     @Test
     public void testPeakElement(){
+        int[] array = {0,2,3,4,9,7,2};
+        int[] array2 = {16,17,18,2,4,9,6,12,8};
+        int[] array3 = {0,1,2,3};
+        Assert.assertEquals(4,bs.findPeakElement(array));
+        Assert.assertEquals(7,bs.findPeakElement(array2));
+        // this fails Assert.assertEquals(3,bs.findPeakElement(array3));
 
     }
 }

@@ -142,14 +142,13 @@ public class BinarySearchProb {
     //Given an unsorted array of positive numbers. All zeroes moved to front. Count number of zeroes/last.
 	// Ex: [0,0,0,0,3,2,2,7,6]
     public int zeroCount(int[] array){
-    	int p = -1;
         int low = 0;
     	int arrayLength = array.length;
     	int high = arrayLength - 1;
     	while(low <= high){
     		int mid = low + (high-low)/2;
     		if(array[mid] == 0 && array[mid+1]>0){
-    			return mid;
+    			return mid+1;
     		}
     		else if(array[mid] > 0)
     			high = mid-1;
@@ -161,11 +160,24 @@ public class BinarySearchProb {
 
     //Find the peak element in array -   log n based approach
     // peak element is greater than its neighbors
-    public void peakElement(int[] array){
-
+    public int findPeakElement(int[] array){
+		int low = 0;
+		int arrayLength = array.length;
+		int high = arrayLength - 1;
+		while(low <= high){
+			int mid = low + (high-low)/2;
+			if (array[mid] > array[mid + 1] && array[mid] > array[mid - 1]) {
+				return mid;
+			}
+			else if (array[mid + 1] > array[mid])
+				    low = mid + 1;
+				 else
+					high = mid - 1;
+		}
+		return -1;
     }
 
-    // Find the median of two sorted arrays without merging them log(m+n)
+    // Find the median of two sorted arrays without merging them with log(m+n) time
     public void medianOfTwoSortedArrays(int[] a, int[] b){
 
     }
