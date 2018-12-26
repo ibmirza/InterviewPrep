@@ -49,8 +49,7 @@ public class BinarySearchProb {
     public int findIndexMatchingValue(int[] array){
         //int p = -1;
         int low = 0;
-    	int arrayLength = array.length;
-    	int high = arrayLength - 1;
+    	int high = array.length - 1;
     	while(low <= high){
     		int mid = low + (high-low)/2;
     		if(array[mid] == mid){
@@ -73,8 +72,7 @@ public class BinarySearchProb {
     public int findFirstOccurence(int[] array, int k){
         int p = -1;
         int low = 0;
-    	int arrayLength = array.length;
-    	int high = arrayLength - 1;
+    	int high = array.length - 1;
     	while(low <= high){
     		int mid = low + (high-low)/2;
     		if(array[mid] == k){
@@ -91,10 +89,9 @@ public class BinarySearchProb {
 
     //Find last index of element in sorted array with duplicates.  in 'log n' time
     public int findLastOccurence(int[] array, int k){
-        int p = -1;
         int low = 0;
-    	int arrayLength = array.length;
-    	int high = arrayLength - 1;
+        int p = -1;
+    	int high = array.length - 1;
     	while(low <= high){
     		int mid = low + (high-low)/2;
     		if(array[mid] == k){
@@ -164,9 +161,15 @@ public class BinarySearchProb {
 		int low = 0;
 		int arrayLength = array.length;
 		int high = arrayLength - 1;
-		while(low <= high){
+		while(low < high){
 			int mid = low + (high-low)/2;
 			if (array[mid] > array[mid + 1] && array[mid] > array[mid - 1]) {
+				return mid;
+			}
+			else if(mid==0 && array[mid]> array[mid+1]) {
+				return mid;
+			}
+			else if(mid==high && array[mid]>array[mid-1]) {
 				return mid;
 			}
 			else if (array[mid + 1] > array[mid])
@@ -174,7 +177,7 @@ public class BinarySearchProb {
 				 else
 					high = mid - 1;
 		}
-		return -1;
+		return low;
     }
 
     // Find the median of two sorted arrays without merging them with log(m+n) time
@@ -187,30 +190,28 @@ public class BinarySearchProb {
     public int findMissingElement(int[] array){
 		int low = 0;
 		int high = array.length - 1;
-		while(low <= high){
+		while(low < high){
 			int mid = low + (high-low)/2;
-			if (array[mid] != (mid+1)) {
-				return mid;
+			if (array[mid] != mid+1) {
+				high = mid;
 			}
-			else if (array[mid] > mid+1)
-				high = mid - 1;
 			else
 				low = mid + 1;
 		}
-		return -1;
+		return array[low]-1;
     }
 
     //Given a sorted array, find the index at which the the value of 'k' should be inserted
     public int findIndexToInsert(int[] array, int k){
 		int low = 0;
 		int high = array.length - 1;
-		while(low <= high){
+		while(low < high){
 			int mid = low + (high-low)/2;
-			if (array[mid] > k) {
-				high = mid;
+			if ( k > array[mid]) {
+				low = mid+1;
 			}
 			else
-				low = mid + 1;
+				high = mid-1;
 		}
 		return low;
     }

@@ -29,7 +29,7 @@ public class BinarySearchProbTests {
     @Test
     public void testFirstOccurenceOfElement(){
         int[] array = {1,3,4,6,6,6,8,10,10,15,30};
-        Assert.assertEquals(7, bs.findFirstOccurence(array, 10));
+        Assert.assertEquals(7, bs.findFirstOccurence(array, 15));
         Assert.assertEquals(3, bs.findFirstOccurence(array, 6));
         Assert.assertEquals(-1, bs.findFirstOccurence(array, 11));
     }
@@ -40,6 +40,8 @@ public class BinarySearchProbTests {
         Assert.assertEquals(8, bs.findLastOccurence(array, 10));
         Assert.assertEquals(5, bs.findLastOccurence(array, 6));
         Assert.assertEquals(-1, bs.findLastOccurence(array, 11));
+        Assert.assertEquals(10, bs.findLastOccurence(array, 30));
+
     }
 
     @Test
@@ -80,21 +82,25 @@ public class BinarySearchProbTests {
         int[] array3 = {0,1,2,3};
         Assert.assertEquals(4,bs.findPeakElement(array));
         Assert.assertEquals(7,bs.findPeakElement(array2));
-        // this fails Assert.assertEquals(3,bs.findPeakElement(array3));
+        Assert.assertEquals(3,bs.findPeakElement(array3));
 
     }
 
     @Test
     public void testMissingElement(){
-        int[] array = {1,3,4,5,6,7};
-        int[] array2 = {1,2,3,4,5};
-        Assert.assertEquals(2,bs.findMissingElement(array));
-        Assert.assertEquals(-1, bs.findMissingElement(array2));
+        int[] array = {1,2,3,4,5,7,8,9};
+        int[] array3 = {1,3,4,5,6,7};
+        Assert.assertEquals(2,bs.findMissingElement(array3));
+        Assert.assertEquals(6, bs.findMissingElement(array));
     }
 
     @Test
     public void testInsertLocation(){
         int[] array = {1,3,4,5,6,7};
+        int[] array2 = {1,2,3,4,5,7};
+        int[] array3 = {1,2,3,5,6,7};
         Assert.assertEquals(1,bs.findIndexToInsert(array, 2));
+        Assert.assertEquals(5,bs.findIndexToInsert(array2, 6));
+        Assert.assertEquals(3,bs.findIndexToInsert(array3, 4));
     }
 }
