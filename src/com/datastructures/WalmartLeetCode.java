@@ -1,5 +1,7 @@
 package com.datastructures;
 
+import java.util.Stack;
+
 public class WalmartLeetCode {
 
     public int[] moveAllZeroesToEnd(int array[]){
@@ -58,6 +60,42 @@ public class WalmartLeetCode {
             excl = temp;
         }
         return incl;
+    }
+
+    // Validate parenthesis
+    public boolean isValidParenthesis(String input){
+        Stack<Character> stack = new Stack<Character>();
+        for(int i=0; i<input.length(); i++){
+           if( input.charAt(i) == '(' || input.charAt(i) == '{' || input.charAt(i) == '[' ) {
+              stack.push(input.charAt(i));
+           }
+           else if(input.charAt(i) == ')' && !stack.isEmpty()){
+              if(stack.peek() == '(')
+                  stack.pop();
+              else
+                  return false;
+           }
+           else if(input.charAt(i) == '}' && !stack.isEmpty()){
+              if(stack.peek() == '{')
+                  stack.pop();
+              else
+                  return false;
+           }
+           else if(input.charAt(i) == ']' && !stack.isEmpty()){
+              if(stack.peek() == '[')
+                  stack.pop();
+              else
+                  return false;
+           }
+        }
+        if(!stack.isEmpty())
+           return false;
+        else
+           return true;
+    }
+
+    public int[] removeDuplicates(int arr[]){
+        
     }
     
 }

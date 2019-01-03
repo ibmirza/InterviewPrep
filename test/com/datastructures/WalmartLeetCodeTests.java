@@ -19,9 +19,20 @@ public class WalmartLeetCodeTests {
     }
 
     @Test
+    public void testTwoSum(){
+        Assert.assertArrayEquals(new int[]{0,1}, wmt.twoSum(new int[]{2,7,11,15}, 9));
+    }
+
+    @Test
     public void testRob(){
         int result = wmt.maxRob(new int[]{2,7,9,3,1});
         Assert.assertEquals(12, result);
+    }
+
+    @Test
+    public void testValidateParenthesis(){
+        Assert.assertFalse(wmt.isValidParenthesis("([)]"));
+        Assert.assertTrue(wmt.isValidParenthesis("()[]{}"));
     }
 
 
