@@ -18,5 +18,11 @@ public class WalmartLeetCodeTests {
         Assert.assertArrayEquals(new int[]{1,3,12,0,0}, wmt.moveAllZeroesToEnd(new int[]{0,1,0,3,12}));
     }
 
+    @Test
+    public void testRob(){
+        int result = wmt.maxRob(new int[]{2,7,9,3,1});
+        Assert.assertEquals(12, result);
+    }
+
 
 }
