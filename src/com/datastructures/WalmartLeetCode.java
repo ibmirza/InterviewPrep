@@ -94,8 +94,19 @@ public class WalmartLeetCode {
            return true;
     }
 
-    public int[] removeDuplicates(int arr[]){
-        
+    // Remove duplicates in a sorted array and return the length of array with unique elements. Move all the unique
+    // elements to the front of the array and non duplicates to end of array
+    public int removeDuplicates(int arr[]){
+        int count = 0;
+        int length = arr.length;
+        for(int i=0; i<length-1; i++){
+           if(arr[i] != arr[i+1]){
+              arr[count] = arr[i]; 
+              count++;
+           }
+        }
+        arr[count] = arr[length - 1];
+        return count+1;
     }
     
 }

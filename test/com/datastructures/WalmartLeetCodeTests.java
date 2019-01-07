@@ -24,6 +24,12 @@ public class WalmartLeetCodeTests {
     }
 
     @Test
+    public void removeDuplicates(){
+        int result = wmt.removeDuplicates(new int[]{2,7,7,8,9,10,10,11});
+        Assert.assertEquals(6, result);
+    }
+
+    @Test
     public void testRob(){
         int result = wmt.maxRob(new int[]{2,7,9,3,1});
         Assert.assertEquals(12, result);
