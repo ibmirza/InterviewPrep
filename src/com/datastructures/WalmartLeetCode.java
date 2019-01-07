@@ -108,5 +108,13 @@ public class WalmartLeetCode {
         arr[count] = arr[length - 1];
         return count+1;
     }
+
+    public Node reverseLinkedListIterative(Node head){
+        return null;
+    }
+
+    public Node reverseLinkedListRecursive(Node head){
+        return null;
+    }
     
 }
