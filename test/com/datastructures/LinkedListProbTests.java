@@ -5,34 +5,27 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class LinkedListProbTests {
-    LinkedList ls;
+    SinglyLinkedList ls;
 
     @Before
     public void setUp() throws Exception {
-         ls = new LinkedList();
+         ls = new SinglyLinkedList();
     }
 
     @Test
     public void testListsAreEqual(){
+        SinglyLinkedList list1 = new SinglyLinkedList();
+        list1.addToLast(new ListNode(1));
+        list1.addToLast(new ListNode(2));
+        list1.addToLast(new ListNode(3));
 
-        LinkedList list1 = new LinkedList();
-        list1.add(1);
-        list1.add(2);
-        list1.add(3);
+        SinglyLinkedList list2 = new SinglyLinkedList();
+        list2.addToLast(new ListNode(1));
+        list2.addToLast(new ListNode(2));
+        list2.addToLast(new ListNode(3));
+        list2.addToLast(new ListNode(4));
 
-        LinkedList list2 = new LinkedList();
-        list2.add(1);
-        list2.add(2);
-        list2.add(3);
-        list2.add(4);
-
-        Assert.assertTrue(ls.areEqual(list1.head, list2.head));
+        Assert.assertFalse(ls.areEqual(list1.head, list2.head));
     }
-
-    @Test
-    public void isOdd(){
-
-    }
-
 
 }

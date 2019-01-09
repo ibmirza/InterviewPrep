@@ -1,10 +1,12 @@
 package com.datastructures;
 
 public class ListNode {
+
     int data;
     ListNode next;
 
-    ListNode(int x){
-        data = x;
+    ListNode(int val){
+        data = val;
+        next = null;
     }
 }

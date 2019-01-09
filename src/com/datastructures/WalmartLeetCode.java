@@ -143,6 +143,5 @@ public class WalmartLeetCode {
         return helperMethod(next,curr);
     }
 
-    public String
-    
+
 }
