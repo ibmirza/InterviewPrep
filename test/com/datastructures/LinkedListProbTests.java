@@ -23,8 +23,8 @@ public class LinkedListProbTests {
         LinkedList list2 = new LinkedList();
         list2.add(1);
         list2.add(2);
+        list2.add(3);
         list2.add(4);
-        list2.add(5);
 
         Assert.assertTrue(ls.areEqual(list1.head, list2.head));
     }

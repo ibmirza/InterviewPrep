@@ -29,7 +29,7 @@ public class WalmartLeetCode {
     //
 
 
-    // Return paid of indices whose values sum is equal to target
+    // Return pair of indices whose values sum is equal to target
     public int[] twoSum(int[] nums, int target){
         int[] result = new int[2];
         int length = nums.length;
@@ -109,12 +109,40 @@ public class WalmartLeetCode {
         return count+1;
     }
 
-    public Node reverseLinkedListIterative(Node head){
-        return null;
+    public ListNode reverseLinkedListIterative(ListNode head){
+            ListNode curr = head;
+            ListNode prev = null;
+            ListNode next = null;
+
+            if(head == null || head.next==null)
+                return head;
+
+            while(curr != null){
+                next = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+            }
+            head = prev;
+            return head;
     }
 
-    public Node reverseLinkedListRecursive(Node head){
-        return null;
+    public ListNode reverseLinkedListRecursive(ListNode head){
+        return helperMethod(head, null);
     }
+
+    public ListNode helperMethod(ListNode curr, ListNode prev){
+        ListNode head = null;
+        if(curr.next == null){
+            head = curr;
+            curr.next = prev;
+            return head;
+        }
+        ListNode next = curr.next;
+        curr.next = prev;
+        return helperMethod(next,curr);
+    }
+
+    public String
     
 }
