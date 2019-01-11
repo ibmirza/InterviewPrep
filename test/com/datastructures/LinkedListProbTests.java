@@ -28,4 +28,21 @@ public class LinkedListProbTests {
         Assert.assertFalse(ls.areEqual(list1.head, list2.head));
     }
 
+    @Test
+    public void testDeleteNode(){
+        SinglyLinkedList list1 = new SinglyLinkedList();
+        list1.addToLast(new ListNode(1));
+        list1.addToLast(new ListNode(2));
+        list1.addToLast(new ListNode(3));
+        list1.deleteNode(list1.head, 1);
+    }
+
+    @Test
+    public void testDeleteNodeWithoutHead(){
+        SinglyLinkedList list1 = new SinglyLinkedList();
+        list1.addToLast(new ListNode(1));
+        list1.addToLast(new ListNode(2));
+        list1.addToLast(new ListNode(3));
+        list1.deleteNodeWithoutKnowingHead(new ListNode(2));
+    }
 }

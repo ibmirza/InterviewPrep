@@ -32,16 +32,47 @@ public class SinglyLinkedList {
         }
     }
 
+    public boolean isContains(ListNode head, int val){
+        ListNode curr = head;
+        while(curr!=null){
+            if(curr.data == val)
+                return true;
+            else
+                curr = curr.next;
+        }
+        return false;
+    }
+
     public boolean areEqual(ListNode head1, ListNode head2){
         return false;
     }
 
-    public void deleteNode(int val){
-
+    public void deleteNode(ListNode head, int val){
+        ListNode prev=null;
+        ListNode curr=head;
+        if(head.data == val){
+           head = curr.next;
+           curr = null;
+        }
+        while(curr != null) {
+            if (curr.data == val) {
+                prev.next = curr.next;
+                curr = null;
+            } else {
+                prev = curr;
+                curr = curr.next;
+            }
+        }
     }
 
+    // Delete node without knowing its head.
+    // constraint: this node will not be the last node
     public void deleteNodeWithoutKnowingHead(ListNode nodeToBeDeleted){
-
+        ListNode curr = nodeToBeDeleted;
+        ListNode next = curr.next;
+        curr.data = next.data;
+        curr.next = next.next;
+        next = null;
     }
 
     public ListNode findMiddleNodeInOnePass(ListNode head){

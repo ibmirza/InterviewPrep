@@ -63,12 +63,23 @@ public class BinarySearchProb {
         return -1;
     }
 
-    // Find an element 'k' in a sorted rotated array in 'log n' time
-    public void findElementInSortedRotatedArray(int[] array, int k){
-
+    // Find an element 'k' in a sorted rotated array in 'log n' time [3,4,5,1,2]
+    public int findElementInSortedRotatedArray(int[] array, int k){
+        int low = 0;
+        int high = array.length-1;
+        while(low<=high){
+           int mid = low + (high-low)/2;
+           if(array[mid] == k)
+                return mid;
+           else if(k < array[mid] && array[low] < k)
+                high = mid-1;
+           else
+                low = mid+1;
+        }
+        return -1;
     }
 
-    // Find first index/occurence of element 'k' in sorted array with duplicates.  in 'log n' time
+    // Find first index/occurence of element 'k' in sorted array with duplicates.  in 'log n' time [1,2,3,4,4,4,5]
     public int findFirstOccurence(int[] array, int k){
         int p = -1;
         int low = 0;
@@ -106,7 +117,7 @@ public class BinarySearchProb {
         return p;
     }
 
-    //Find frequency of element 'k' in sorted array.  in 'log n' time
+    //Find frequency of element 'k' in sorted array.  in 'log n' time [1,2,3,4,4,5]
     public int findFrequency(int[] array, int k){
         int last = findLastOccurence(array, k);
         int first = findFirstOccurence(array, k);
@@ -180,13 +191,35 @@ public class BinarySearchProb {
 		return low;
     }
 
-    // Find the median of two sorted arrays without merging them with log(m+n) time
+    // Find the median of two sorted arrays without merging them with TC: log(m+n) SC: O(1)
+	// [1,3,5,7]
+	// [2,4,8]
     public void medianOfTwoSortedArrays(int[] a, int[] b){
+    	int lowOfA = 0;
+    	int highOfA = a.length-1;
 
+		int lowOfB = 0;
+		int highOfB = b.length-1;
+
+		while(lowOfA<highOfA && lowOfB<highOfB){
+			int midOfA = lowOfA + (highOfA-lowOfA)/2;
+			int midOfB = lowOfB + (highOfB-lowOfB)/2;
+
+			if(a[midOfA] < b[midOfB]){
+				lowOfA = midOfA;
+				highOfB = midOfB;
+			}
+			else{
+
+			}
+		}
     }
 
 
-    // Given a sorted array with distinct elements in it. Find missing elements in it. Find the missing element in log n time
+    // Given a sorted array with distinct elements in it. Find missing element in it. Find the missing element in log n time
+	// [1,2,3,4,5,7]
+	//  0,1,2,3,4,5
+	// constraint elements are 1 to N i.e if array size is 5 then elements are 0 to 5
     public int findMissingElement(int[] array){
 		int low = 0;
 		int high = array.length - 1;
@@ -201,7 +234,7 @@ public class BinarySearchProb {
 		return array[low]-1;
     }
 
-    //Given a sorted array, find the index at which the the value of 'k' should be inserted
+    //Given a sorted array, find the index at which the the value of 'k' should be inserted [1,2,3,4,6,7]
     public int findIndexToInsert(int[] array, int k){
 		int low = 0;
 		int high = array.length - 1;

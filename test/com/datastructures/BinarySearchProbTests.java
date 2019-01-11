@@ -103,4 +103,10 @@ public class BinarySearchProbTests {
         Assert.assertEquals(5,bs.findIndexToInsert(array2, 6));
         Assert.assertEquals(3,bs.findIndexToInsert(array3, 4));
     }
+
+    @Test
+    public void testRotatedSortedArray(){
+        int[] array = {3,4,5,1,2};
+        Assert.assertEquals(1,bs.findElementInSortedRotatedArray(array, 4));
+    }
 }
